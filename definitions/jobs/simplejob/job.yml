@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+experiment_name: attached_vm_job
+display_name: "simple command job"
+compute: azureml:vm-example
+environment:
+  image: python 
+  #image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+environment_variables:
+    WHO: "Weather Folks"
+command: |
+  echo "Hello $WHO"
