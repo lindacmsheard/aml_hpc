@@ -47,9 +47,21 @@ or portal:
 ![aml_compute](./docs/img/attach_success.png)
 
 
+
+### 4a. (Optional) Create an Azure Compute Instance and cluster for comparison
+```bash
+az ml compute create -f definitions/compute/aml-compute-instance.yml
+az ml compute create -f definitions/compute/aml-compute-cluster.yml
+```
+
+
 ### 5. Submit a job
 ```bash
 az ml job create -f definitions/job/simplejob/job.yml
 ```
 
-Currently seeing error without useful explanation: "UserError: Unable to establish SSH connection". Allowing access on all ports from anywhere on the NSG does not fix it. Perhaps try using ssh key instead of password for the VM.
+:x: Currently seeing error without useful explanation: "UserError: Unable to establish SSH connection". Allowing access on all ports from anywhere on the NSG does not fix it. Perhaps try using ssh key instead of password for the VM.
+
+:point_right: Expected outcome (obtained running on AML CI):
+
+![job_success](./docs/img/simple_job_expected.png)
